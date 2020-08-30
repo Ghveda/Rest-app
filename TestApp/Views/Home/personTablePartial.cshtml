@@ -1,0 +1,60 @@
+﻿
+@model List<PersonViewModel>
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container">
+            <button onclick="addNew()" type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">+add a new person</button>
+            <select id="orderingSelectBoxId" onchange="orderChange()" class="btn btn-light">
+                <option value="nameAsc" class="dropdown-item">მეტობა სახელით</option>
+                <option value="nameDesc" class="dropdown-item">კლებადი სახელით</option>
+                <option value="surnameAsc" class="dropdown-item">მეტობა გვარით</option>
+                <option value="surnameDesc" class="dropdown-item">ნაკლებობა გვარით</option>
+            </select>
+            <form class="form-inline ">
+                <input class="form-control " type="search" placeholder="Search" aria-label="Search" id="searchInput" onkeyup="orderChange()">
+            </form>
+        </div>
+    </nav>
+<div id="tableIdMethod">
+<table class="table" id="personTableId">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">date</th>
+            <th scope="col">pin </th>
+            <th scope="col">mobile</th>
+            <th scope="col">Website </th>
+            <th scope="col">Country</th>
+            <th scope="col">email</th>
+            <th scope="col">sex</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var i in Model)
+        {
+            <tr data-rowId="@i.Id" id="searchRow">
+                <td>@i.Id</td>
+                <td>@i.Name</td>
+                <td>@i.Surname</td>
+                <td>@i.Birthdate?.ToString("dd-MM-yyyy")</td>
+                <td>@i.Pin</td>
+                <td>@i.Mobile</td>
+                <td>@i.Website</td>
+                <td>@i.CountryString</td>
+                <td>@i.Email</td>
+                <td>@i.GenderString</td>
+
+                <td><button data-toggle="modal" data-target="#exampleModal" type="button" data-edited="@i.Id" class="btn btn-outline-success" onclick="EditPerson(this)">Edit</button></td>
+                <td><button type="button" class="btn btn-outline-danger" data-deleteId="@i.Id" onclick="deleteMethod(this)">Delete</button></td>
+
+            </tr>
+
+
+        }
+
+
+    </tbody>
+</table>
+    </div>

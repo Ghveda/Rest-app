@@ -1,0 +1,13 @@
+﻿@model List<PersonViewModel>
+<link href="~/css/site.css" rel="stylesheet" />
+@{
+    var mod = new PersonViewModel();
+}
+@Html.Partial("~/Views/Home/popupPartial=.cshtml", mod)
+@{
+    ViewData["Title"] = "Home Page";
+}
+@Html.Partial("~/Views/Home/personTablePartial.cshtml",Model)
+
+
+

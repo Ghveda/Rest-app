@@ -1,0 +1,76 @@
+﻿@model PersonViewModel
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form asp-controller="Home" asp-action="CreatPerson" id="personsFormId" method="post">
+                        <input type="hidden" name="Id" />
+                        <div class="form-group">
+                            <label>name</label>
+                            <span asp-validation-for="Name" class="text-danger validation-message"></span>
+                            <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Name" />
+                        </div>
+                        <div class="form-group">
+                            <label>surname</label>
+                            <span asp-validation-for="Surname" class="text-danger validation-message"></span>
+                            <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Surname" />
+                        </div>
+                        <div class="form-group">
+                            <label>date</label>
+                            <span asp-validation-for="Birthdate" class="text-danger validation-message"></span>
+                            <input type="date"  class="form-control" id="BirthdateId" asp-for="Birthdate" />
+                        </div>
+                        <div class="form-group">
+                            <label>id</label>
+                            <span asp-validation-for="Pin" class="text-danger validation-message"></span>
+                            <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Pin" />
+                        </div>
+                        <div class="form-group">
+                            <label>mobile</label>
+                            <span asp-validation-for="Mobile" class="text-danger validation-message"></span>
+                            <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Mobile" />
+                        </div>
+                        <div class="form-group">
+                            <label>website</label>
+                            <span asp-validation-for="Website" class="text-danger validation-message"></span>
+                            <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Website" />
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <span asp-validation-for="CountryId" class="text-danger validation-message"></span>
+                            <select type="text" class="form-control" id="exampleInputEmail1" asp-for="CountryId">
+                                <option value="1">Georgia</option>
+                                <option value="2">Usa</option>
+                                <option value="3">Russia</option>
+                                <option value="4">UK</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>email</label>
+                            <span asp-validation-for="Email" class="text-danger validation-message"></span>
+                            <input type="email" class="form-control" id="exampleInputEmail1" asp-for="Email" />
+                        </div>
+                        <div class="form-group">
+                            <label>sex</label> <br />
+                            <span asp-validation-for="GenderId" class="text-danger validation-message"></span>
+                            <input type="radio" id="maleId" asp-for="GenderId" value="1" />
+                            <label for="maleId" class="ml-1">male</label> <br />
+                            <input type="radio" id="femaleId" asp-for="GenderId" value="2" />
+                            <label for="femaleId" class="ml-1">female</label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
